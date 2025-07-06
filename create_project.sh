@@ -15,7 +15,8 @@ cursor .
 
 # Add new features/frameworks:
 cd ./app
-npm i -D prettier-plugin-tailwindcss prettier eslint-plugin-simple-import-sort
+npm i -D prettier-plugin-tailwindcss prettier eslint-plugin-simple-import-sort drizzle-kit
+npm i drizzle-orm pg
 
 # To run the project, run:
 npm run dev
