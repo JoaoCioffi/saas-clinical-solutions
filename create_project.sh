@@ -22,7 +22,7 @@ npm i drizzle-orm pg
 npx drizzle-kit push
 
 # Add drizzle-kit:
-npx drizzle-kit init
+npx drizzle-kit studio 
 
 # Shadcn init:
 npx shadcn@latest init
