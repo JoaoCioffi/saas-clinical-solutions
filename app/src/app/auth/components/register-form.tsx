@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import z from "zod";
 
 import { Button } from "@/components/ui/button";
@@ -82,11 +83,21 @@ const RegisterForm = () => {
       },
       {
         onSuccess: () => {
-          router.push("/dashboard"); // Agora `router` está acessível
+          toast.success("Account created successfully!");
+          router.push("/dashboard");
+        },
+        onError: (error) => {
+          console.error("Registration error:", error);
+          if (error?.response?.status === 422) {
+            toast.error("Email or username already exists.");
+          } else {
+            toast.error("Registration failed. Please try again later.");
+          }
         },
       },
     );
   }
+
   return (
     <Card>
       <Form {...form}>
@@ -96,6 +107,8 @@ const RegisterForm = () => {
             <CardDescription>Create an account to get started.</CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4">
+            {/* Campos do formulário permanecem iguais */}
+            {/* username, email, password, confirmPassword */}
             <FormField
               control={form.control}
               name="username"
@@ -109,7 +122,6 @@ const RegisterForm = () => {
                 </FormItem>
               )}
             />
-
             <FormField
               control={form.control}
               name="email"
@@ -127,7 +139,6 @@ const RegisterForm = () => {
                 </FormItem>
               )}
             />
-
             <FormField
               control={form.control}
               name="password"
@@ -145,7 +156,6 @@ const RegisterForm = () => {
                 </FormItem>
               )}
             />
-
             <FormField
               control={form.control}
               name="confirmPassword"
