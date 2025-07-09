@@ -26,3 +26,5 @@ A web app concept for clinical/health solutions. Designed for:
 ## ER Diagram 🧩
 
 ![alt text](./img/er-diagram.png "Title")
+
+---

@@ -18,14 +18,14 @@ cd ./app
 npm i -D prettier-plugin-tailwindcss prettier eslint-plugin-simple-import-sort drizzle-kit
 npm i drizzle-orm pg
 
+# Shadcn init:
+npx shadcn@latest init
+
 # Push the schema to the database:
 npx drizzle-kit push
 
-# Add drizzle-kit:
+# Open drizzle-kit Web UI:
 npx drizzle-kit studio 
-
-# Shadcn init:
-npx shadcn@latest init
 
 # To run the project, run:
 npm run dev
